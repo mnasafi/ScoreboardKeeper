@@ -1,3 +1,9 @@
+/* Author: Mustafa Nasafi
+ * CSU, Chico - Spring 2018
+ * CSCI 111 - Professor Kevin Buffardi
+ */
+
+
 #include <iostream>
 #include <vector>
 
@@ -87,7 +93,7 @@ int main()
             for (int col = 0; col < scoreBoard[row].size(); col++)
             {
                 // assigns randomly generated number 0-9
-                scoreBoard [row][col] = randomBetween(5,5);
+                scoreBoard [row][col] = randomBetween(0,9);
 
             } // end for
 
