@@ -47,20 +47,47 @@ int main()
         cout<<"and between "<<MIN_PERIODS<<" and "<<MAX_PERIODS<<" periods.\n";
         return 0;
     }
+
     else
     {
-        //make scoreboard and fill it with zeros
-
-
         scoreBoard.resize( teams );
 
+
+        // make score board and fill with zeroes
+
+        for (int r = 0; r < scoreBoard.size(); r++)
+        {
+            scoreBoard [r].resize( periods ); // resizes column for each row
+
+            for (int c = 0; c < scoreBoard[r].size(); c++)
+            {
+                // fills scoreboard with zeroes
+                scoreBoard [r][c] = 0;
+
+            } // end for
+
+
+        } // end for
+
+
+        // prints scoreboard with all zereos
+        printScoreboard ( scoreBoard );
+
+
+
+
+
+
+
+        // randomly generated scoreboard
         for (int row = 0; row < scoreBoard.size(); row++)
         {
             scoreBoard [row].resize( periods ); // resizes column for each row
 
             for (int col = 0; col < scoreBoard[row].size(); col++)
             {
-                scoreBoard [row][col] = randomBetween(0,9); // assigns randomly generated number 0-9 
+                // assigns randomly generated number 0-9
+                scoreBoard [row][col] = randomBetween(0,9);
 
             } // end for
 
@@ -72,8 +99,13 @@ int main()
         printScoreboard( scoreBoard );
 
 
-// legacy code for reference... before printScoreboard function was implemented.
-        /*
+
+
+        /*************
+         *
+         *
+         * legacy code for reference... before printScoreboard function was implemented.
+
         //once created, display the scoreboard
         // delete below for loop block after getting printScoreboard working
 
@@ -92,8 +124,13 @@ int main()
         cout<<endl; // newline after each row
 
         } // end for
-        */
-// end legacy code
+
+        // end legacy code
+         *
+         *
+         *
+         **************/
+
 
 
     } // end else
@@ -101,6 +138,8 @@ int main()
 
     return 0;
 } // end main
+
+
 
 
 
@@ -134,28 +173,27 @@ void printScoreboard(vector < vector <int> > grid )
 
 
 
+
+
+
+
 // define randomBetween function
-int randomBetween ( first, second )
+int randomBetween ( int first, int second )
 {
 
-  if( first > second)
-  {
-      return second + rand() % ( first - second + 1 );
+    if( first > second)
+    {
+        return second + rand() % ( first - second + 1 );
 
-  } // end if
+    } // end if
 
-  else
-  {
-      return first + rand() % ( second - first + 1 );
-
-
-  } // end else
+    else
+    {
+        return first + rand() % ( second - first + 1 );
 
 
-
-
+    } // end else
 
 
 } // end randomBetween function
-
 
