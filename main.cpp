@@ -1,6 +1,11 @@
 #include <iostream>
 #include <vector>
 
+#include <cstdlib>
+#include <ctime>
+
+
+
 using namespace std;
 
 // Global constant variables
@@ -11,13 +16,19 @@ const int MIN_TEAMS = 1;
 
 
 
-
 // function prototype
 
 void printScoreboard( vector < vector <int> > );
 
+int randomBetween( int, int ); // random number generator within a range
+
+
+
 int main()
 {
+    // seed for random number generator - RUN ONLY ONCE. DO NOT LOOP!
+    srand( (int) time(0) );
+
     int periods; // columns
     int teams;  // rows
 
@@ -49,7 +60,7 @@ int main()
 
             for (int col = 0; col < scoreBoard[row].size(); col++)
             {
-                scoreBoard [row][col] = 0;
+                scoreBoard [row][col] = randomBetween(0,9); // assigns randomly generated number 0-9 
 
             } // end for
 
@@ -61,7 +72,7 @@ int main()
         printScoreboard( scoreBoard );
 
 
-
+// legacy code for reference... before printScoreboard function was implemented.
         /*
         //once created, display the scoreboard
         // delete below for loop block after getting printScoreboard working
@@ -82,6 +93,7 @@ int main()
 
         } // end for
         */
+// end legacy code
 
 
     } // end else
@@ -94,7 +106,7 @@ int main()
 
 
 
-// define function
+// define print function
 void printScoreboard(vector < vector <int> > grid )
 {
     cout << "SCOREBOARD\n";
@@ -113,12 +125,37 @@ void printScoreboard(vector < vector <int> > grid )
 
         } // end for
 
-        cout<<endl; // newline after each row
+        cout << endl; // newline after each row
 
     } // end for
 
 
+} // end print function
 
 
 
-} // end function
+// define randomBetween function
+int randomBetween ( first, second )
+{
+
+  if( first > second)
+  {
+      return second + rand() % ( first - second + 1 );
+
+  } // end if
+
+  else
+  {
+      return first + rand() % ( second - first + 1 );
+
+
+  } // end else
+
+
+
+
+
+
+} // end randomBetween function
+
+
