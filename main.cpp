@@ -87,7 +87,7 @@ int main()
             for (int col = 0; col < scoreBoard[row].size(); col++)
             {
                 // assigns randomly generated number 0-9
-                scoreBoard [row][col] = randomBetween(0,9);
+                scoreBoard [row][col] = randomBetween(5,5);
 
             } // end for
 
