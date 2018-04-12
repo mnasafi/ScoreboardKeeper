@@ -3,10 +3,18 @@
 
 using namespace std;
 
+// Global constant variables
 const int MAX_PERIODS = 10;
 const int MAX_TEAMS = 4;
 const int MIN_PERIODS = 1;
 const int MIN_TEAMS = 1;
+
+
+
+
+// function prototype
+
+void printScoreboard( vector < vector <int> > );
 
 int main()
 {
@@ -47,27 +55,70 @@ int main()
 
         } // end for
 
+
+
+        // calls function
+        printScoreboard( scoreBoard );
+
+
+
+        /*
         //once created, display the scoreboard
-        //
+        // delete below for loop block after getting printScoreboard working
 
         cout<<"SCOREBOARD"<<endl;
         for(int r = 0; r < teams; r++)
         {
-            cout<<"Player "<<r + 1<<": ";
+        cout<<"Player "<<r + 1<<": ";
 
-            for(int c = 0; c < periods; c++)
-            {
+        for(int c = 0; c < periods; c++)
+        {
 
-                cout << scoreBoard[r][c] << "|";
-
-            } // end for
-
-            cout<<endl; // newline after each row
+        cout << scoreBoard[r][c] << "|";
 
         } // end for
 
+        cout<<endl; // newline after each row
+
+        } // end for
+        */
 
 
     } // end else
+
+
     return 0;
 } // end main
+
+
+
+
+
+// define function
+void printScoreboard(vector < vector <int> > grid )
+{
+    cout << "SCOREBOARD\n";
+    // traverse grid and print out each row as a player's score
+    // and each column as the score for that scoring period
+
+
+    for(int r = 0; r < grid.size(); r++)
+    {
+        cout<<"Player "<<r + 1<<": ";
+
+        for(int c = 0; c < grid[r].size(); c++)
+        {
+
+            cout << grid[r][c] << "|";
+
+        } // end for
+
+        cout<<endl; // newline after each row
+
+    } // end for
+
+
+
+
+
+} // end function
